@@ -11,11 +11,6 @@ public class Person {
 	private String name, school;
 	private ArrayList<Person> friends;
 	
-	/**
-	 * A Person takes in a name and a college
-	 * @param n
-	 * @param college
-	 */
 	public Person(String n, String college)
 	{
 		this.name = n;
@@ -23,10 +18,6 @@ public class Person {
 		friends = new ArrayList<Person>();
 	}
 	
-	/**
-	 * Adds a friend 
-	 * @param p
-	 */
 	public void addFriend(Person p)
 	{
 		friends.add(p);
@@ -34,13 +25,12 @@ public class Person {
 	
 	public String toString()
 	{
-		return name + " " + school;
+		if(school != null)
+			return "(" + name + "," + school +")";
+		else
+			return "(" + name + ")";
 	}
 	
-	/**
-	 * Get and print all the friends
-	 * @return
-	 */
 	public String getFriends()
 	{
 		String x = "";
