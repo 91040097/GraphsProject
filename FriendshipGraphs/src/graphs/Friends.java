@@ -9,7 +9,7 @@ public class Friends {
 	 * HashMap of the people	
 	 */
 	private HashMap<String, Person> people;
-	
+
 	/**
 	 * Build the graph from input file
 	 * Create the people HashMap
@@ -18,8 +18,9 @@ public class Friends {
 	public Friends(String file){
 		people = new HashMap<String, Person>();
 		build(file);
+		print(people);
 	}
-	
+
 	/**
 	 * Builds a Graph
 	 * @param file input file
@@ -29,18 +30,18 @@ public class Friends {
 		try {
 			Scanner x = new Scanner(new File(file));
 			String num = x.nextLine();
-			
+
 			int n = Integer.parseInt(num), i = 0;
-			
+
 			while(x.hasNextLine() && i < n)
 			{
 				String line = x.nextLine();
-				
+
 				int start = line.indexOf("|"), end = start + 2;
-				
+
 				String name = line.substring(0, start);
 				String college = "";
-				
+
 				if(end < line.length())
 				{
 					college = line.substring(end + 1, line.length());
@@ -48,18 +49,18 @@ public class Friends {
 				}
 				else
 					people.put(name, new Person(name, null));
-				
+
 				i++;
 			}
-			
+
 			while(x.hasNextLine())
 			{
 				String line = x.nextLine();
-				
+
 				int start = line.indexOf("|");
-				
+
 				String name = line.substring(0, start);
-				
+
 				if(start + 1 < line.length())
 				{
 					String friend = line.substring(start + 1, line.length());
@@ -72,4 +73,15 @@ public class Friends {
 			e.printStackTrace();
 		}
 	}
+
+
+	private static void print(HashMap<String, Person> p) {
+		Iterator itr = p.keySet().iterator();
+		while(itr.hasNext()){
+			//System.out.println(itr.next());
+			System.out.print(p.get(itr.next()).getFriends());
+		}
+	}
+		
+		
 }

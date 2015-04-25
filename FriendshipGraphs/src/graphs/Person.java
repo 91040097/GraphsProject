@@ -26,7 +26,7 @@ public class Person {
 	public String toString()
 	{
 		if(school != null)
-			return "(" + name + "," + school +")";
+			return "(" + name + ", " + school +")";
 		else
 			return "(" + name + ")";
 	}
@@ -37,7 +37,7 @@ public class Person {
 		
 		for(int i = 0;i < friends.size();i++)
 		{
-			x += friends.get(i) + "-->";
+			x += friends.get(i) + " --> ";
 		}
 		
 		return x;
