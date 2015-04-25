@@ -8,7 +8,7 @@ public class FriendsTester {
 
 	static char getOption() {
 		System.out.print("\tChoose action: ");
-		System.out.print("(p)rint Graph, ");
+		System.out.print("(p)rint graph, ");
 		System.out.print("(s)hortest intro chain, ");
 		System.out.print("(f)ind cliques, ");
 		System.out.print("(g)et connectors, or ");
