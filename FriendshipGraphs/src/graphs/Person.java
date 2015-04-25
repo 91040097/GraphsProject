@@ -34,10 +34,10 @@ public class Person {
 	public String getFriends()
 	{
 		String x = "";
-		
-		for(int i = 0;i < friends.size();i++)
+		System.out.print(friends.get(0));
+		for(int i = 1;i < friends.size();i++)
 		{
-			x += friends.get(i) + " --> ";
+			x += " ---> " + friends.get(i);
 		}
 		
 		return x;
