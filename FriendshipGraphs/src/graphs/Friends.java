@@ -24,9 +24,9 @@ public class Friends {
 	 * Builds a Graph
 	 * @param file input file
 	 */
+	@SuppressWarnings("resource")
 	private void build(String file){
 		try {
-			@SuppressWarnings("resource")
 			Scanner x = new Scanner(new File(file));
 			String num = x.nextLine();
 			
