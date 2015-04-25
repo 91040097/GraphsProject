@@ -15,11 +15,11 @@ public class Friends {
 	 * Create the people HashMap
 	 * @param file the input file to be read in
 	 */
-	public Friends(String file){
+	public Friends(){
 		people = new HashMap<String, Person>();
-		build(file);
-		printPerson(people);
-		printFriends(people);
+		//build(file);
+		//printPerson(people);
+		//printFriends(people);
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class Friends {
 	 * @param file input file
 	 */
 	@SuppressWarnings("resource")
-	private void build(String file){
+	public void build(String file){
 		try {
 			Scanner x = new Scanner(new File(file));
 			String num = x.nextLine();
@@ -75,6 +75,11 @@ public class Friends {
 		}
 	}
 
+	public void print(){
+		printPerson(people);
+		printFriends(people);
+	}
+	
 	private static void printPerson(HashMap<String, Person> p){
 		Iterator itr = p.keySet().iterator();
 		while(itr.hasNext()){
