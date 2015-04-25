@@ -37,6 +37,10 @@ public class Person {
 		return name + " " + school;
 	}
 	
+	/**
+	 * Get and print all the friends
+	 * @return
+	 */
 	public String getFriends()
 	{
 		String x = "";
