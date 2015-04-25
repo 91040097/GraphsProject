@@ -79,7 +79,7 @@ public class Friends {
 		Iterator itr = p.keySet().iterator();
 		while(itr.hasNext()){
 			//System.out.println(itr.next());
-			System.out.print(p.get(itr.next()).getFriends());
+			System.out.print(p.get(itr.next()).getFriends() + "\n");
 		}
 	}
 		
