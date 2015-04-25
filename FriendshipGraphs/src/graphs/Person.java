@@ -33,13 +33,13 @@ public class Person {
 	
 	public String getFriends()
 	{
-		String x = "";
-		System.out.print(friends.get(0));
-		for(int i = 1;i < friends.size();i++)
-		{
-			x += " ---> " + friends.get(i);
-		}
-		
-		return x;
+			String x = "";
+			System.out.print(friends.get(0));
+			for(int i = 1;i < friends.size();i++)
+			{
+				x += " ---> " + friends.get(i);
+			}
+			
+			return x;
 	}
 }

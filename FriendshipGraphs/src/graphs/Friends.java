@@ -18,7 +18,8 @@ public class Friends {
 	public Friends(String file){
 		people = new HashMap<String, Person>();
 		build(file);
-		print(people);
+		printPerson(people);
+		printFriends(people);
 	}
 
 	/**
@@ -74,11 +75,16 @@ public class Friends {
 		}
 	}
 
-
-	private static void print(HashMap<String, Person> p) {
+	private static void printPerson(HashMap<String, Person> p){
 		Iterator itr = p.keySet().iterator();
 		while(itr.hasNext()){
-			//System.out.println(itr.next());
+			System.out.print(p.get(itr.next()) + "\n");
+		}
+	}
+	
+	private static void printFriends(HashMap<String, Person> p) {
+		Iterator itr = p.keySet().iterator();
+		while(itr.hasNext()){
 			System.out.print(p.get(itr.next()).getFriends() + "\n");
 		}
 	}
