@@ -13,7 +13,7 @@ public class Friends {
 	 * Create the people HashMap
 	 * @param file the input file to be read in
 	 */
-	public FriendshipGraph(String file){
+	public Friends(String file){
 		people = new HashMap<String, Person>();
 		build(file);
 	}
