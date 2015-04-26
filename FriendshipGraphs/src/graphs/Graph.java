@@ -80,8 +80,9 @@ public class Graph {
 		}
 	}
 	
-	public static ArrayList<Graph> findCliques(String school){
+	public ArrayList<Graph> findCliques(String school){
 		/*THIS LINE HAS BEEN ADDED TO MAKE THE METHOD COMPILE*/
+		
 		return null;
 	}
 
