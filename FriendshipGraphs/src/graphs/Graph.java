@@ -80,10 +80,14 @@ public class Graph {
 		}
 	}
 	
-	public static void findCliques(String school){
-		
+	public static ArrayList<Graph> findCliques(String school){
+		/*THIS LINE HAS BEEN ADDED TO MAKE THE METHOD COMPILE*/
+		return null;
 	}
 
+	private static void dfs(){
+		
+	}
 	/**
 	 * Prints the graph
 	 */
