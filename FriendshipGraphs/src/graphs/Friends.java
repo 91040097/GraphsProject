@@ -69,15 +69,18 @@ public class Friends {
 					people.get(friend).addFriend(people.get(name));
 				}
 			}
+			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Prints the graph
+	 */
 	public void print(){
-		printPerson(people);
-		printFriends(people);
+		printPerson(people); //print person
+		printFriends(people); //print that person's friend(s)
 	}
 	
 	private static void printPerson(HashMap<String, Person> p){
