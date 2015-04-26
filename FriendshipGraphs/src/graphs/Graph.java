@@ -80,10 +80,25 @@ public class Graph {
 		}
 	}
 	
-	
-	public ArrayList<Graph> findCliques(String school){
+	/**
+	 * Find the people who go to the input school
+	 * @param school
+	 * @return Graph
+	 */
+	public Graph findCliques(String school){
 		/*THIS LINE HAS BEEN ADDED TO MAKE THE METHOD COMPILE*/
 		/*Ram*/
+		Graph cliques = new Graph();
+		return cliques;
+	}
+	
+	/**
+	 * 	
+	 * @param school the input school
+	 * @return subgraph containing the people who go to school	
+	 */
+	private Graph getSubgraph(String school){
+		
 		return null;
 	}
 	

@@ -19,7 +19,7 @@ public class Person {
 	}
 	
 	public void addFriend(Person p)
-	{
+	{	
 		friends.add(p);
 	}
 	
