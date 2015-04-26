@@ -80,10 +80,20 @@ public class Graph {
 		}
 	}
 	
+	
 	public ArrayList<Graph> findCliques(String school){
 		/*THIS LINE HAS BEEN ADDED TO MAKE THE METHOD COMPILE*/
-		
+		/*Ram*/
 		return null;
+	}
+	
+	/**
+	 * Finds the shortest path from a to b
+	 * @param a Starting person (intro)
+	 * @param b Ending person (other)
+	 */
+	public static void shortestPath(Person a, Person b){
+		/*Nishanth*/
 	}
 
 	private static void dfs(){		
