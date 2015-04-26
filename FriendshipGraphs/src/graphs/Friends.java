@@ -1,101 +1,47 @@
 package graphs;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
 
+import java.util.Scanner;
+
+/**
+ * This is our tester class.
+ * @author Ramaseshan Parthasarathy
+ * @author Nishanth Athreya
+ */
 public class Friends {
 
-	/**
-	 * HashMap of the people	
-	 */
-	private HashMap<String, Person> people;
+	static Scanner stdin = new Scanner(System.in);
 
-	/**
-	 * Build the graph from input file
-	 * Create the people HashMap
-	 * @param file the input file to be read in
-	 */
-	public Friends(){
-		people = new HashMap<String, Person>();
-		//build(file);
-		//printPerson(people);
-		//printFriends(people);
+	static char getOption() {
+		System.out.print("\tChoose action: ");
+		System.out.print("(p)rint graph, ");
+		System.out.print("(s)hortest intro chain, ");
+		System.out.print("(f)ind cliques, ");
+		System.out.print("(g)et connectors, or ");
+		System.out.print("(q)uit? => ");
+		char response = stdin.next().toLowerCase().charAt(0);
+		while (response != 'p' && response != 's' && response != 'f' && response != 'g' && response != 'q') {
+			System.out.print("\tYou must enter one of p, s, f, g, or q => ");
+			response = stdin.next().toLowerCase().charAt(0);
+		}
+		return response;
 	}
 
-	/**
-	 * Builds a Graph
-	 * @param file input file
-	 */
-	@SuppressWarnings("resource")
-	public void build(String file){
-		try {
-			Scanner x = new Scanner(new File(file));
-			String num = x.nextLine();
-
-			int n = Integer.parseInt(num), i = 0;
-
-			while(x.hasNextLine() && i < n)
-			{
-				String line = x.nextLine();
-
-				int start = line.indexOf("|"), end = start + 2;
-
-				String name = line.substring(0, start);
-				String college = "";
-
-				if(end < line.length())
-				{
-					college = line.substring(end + 1, line.length());
-					people.put(name, new Person(name, college));
-				}
-				else
-					people.put(name, new Person(name, null));
-
-				i++;
+	public static void main(String[] args){ 
+		System.out.print("Enter file name => ");
+		String file = stdin.next();
+		Graph one = new Graph();
+		one.build(file);
+		char option;
+		while ((option = getOption()) != 'q') {
+			if (option == 'p') {
+				one.print();
+			} else if (option == 's') {
+				System.out.println("Shortest Path...");
+			} else if (option == 'f') {
+				System.out.println("Cliques...");
+			} else if (option == 'g') {
+				System.out.println("Get the connectors...");
 			}
-
-			while(x.hasNextLine())
-			{
-				String line = x.nextLine();
-
-				int start = line.indexOf("|");
-
-				String name = line.substring(0, start);
-
-				if(start + 1 < line.length())
-				{
-					String friend = line.substring(start + 1, line.length());
-					people.get(name).addFriend(people.get(friend));
-					people.get(friend).addFriend(people.get(name));
-				}
-			}
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
 	}
-
-	/**
-	 * Prints the graph
-	 */
-	public void print(){
-		printPerson(people); //print person
-		printFriends(people); //print that person's friend(s)
-	}
-	
-	private static void printPerson(HashMap<String, Person> p){
-		Iterator itr = p.keySet().iterator();
-		while(itr.hasNext()){
-			System.out.print(p.get(itr.next()) + "\n");
-		}
-	}
-	
-	private static void printFriends(HashMap<String, Person> p) {
-		Iterator itr = p.keySet().iterator();
-		while(itr.hasNext()){
-			System.out.print(p.get(itr.next()).getFriends() + "\n");
-		}
-	}
-		
-		
 }

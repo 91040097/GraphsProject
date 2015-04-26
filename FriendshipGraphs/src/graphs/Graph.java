@@ -3,6 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * This is our Graph class.
+ * @author Ramaseshan Parthasarathy
+ * @author Nishanth Athreya
+ */
 public class Graph {
 
 	/**
