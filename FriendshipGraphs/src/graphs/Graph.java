@@ -193,10 +193,6 @@ public class Graph {
 	public static void shortestPath(Person a, Person b){
 		/*Nishanth*/
 	}
-
-	private static void dfs(){		
-		/*To be filled in*/
-	}
 	
 	/**
 	 * Prints the graph
