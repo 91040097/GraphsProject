@@ -1,5 +1,6 @@
 package graphs;
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -14,6 +15,9 @@ public class Graph {
 	 * HashMap of the people	
 	 */
 	private HashMap<String, Person> people;
+	private int num;
+	private String[] vertices;
+	private HashMap<String, Integer> vertexNums;
 
 	/**
 	 * Build the graph from input file
@@ -51,10 +55,10 @@ public class Graph {
 				if(end < line.length())
 				{
 					college = line.substring(end + 1, line.length());
-					people.put(name, new Person(name, college));
+					people.put(name, new Person(name, college, i));
 				}
 				else
-					people.put(name, new Person(name, null));
+					people.put(name, new Person(name, null, i));
 
 				i++;
 			}
@@ -75,9 +79,82 @@ public class Graph {
 				}
 			}
 			
+			addVertex();
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void addVertex()
+	{	
+		int s = people.size();
+		
+		vertices = new String[s + 1];
+		
+		vertexNums = new HashMap<String, Integer>();
+		
+		boolean[] visited = new boolean[s];
+		
+		Iterator<String> itr = people.keySet().iterator();
+		
+		HashMap<String, Integer> c = new HashMap<String, Integer>();
+		
+		num = s;
+		
+		while(itr.hasNext())
+		{
+			String name = itr.next();
+			
+			DFS(people.get(name), visited, c);
+		}
+		
+		itr = c.keySet().iterator();
+		
+		while(itr.hasNext())
+		{
+			String n = itr.next();
+			
+			//System.out.println(n + " " + c.get(n));
+			
+			vertexNums.put(n, c.get(n));
+			vertices[c.get(n)] = n;
+		}
+	}
+	
+	public void printVertexStuff()
+	{
+		for(int i = 1;i < vertices.length;i++)
+		{
+			System.out.println(i + " " + vertices[i]);
+		}
+		
+		System.out.println();
+		
+		Iterator<String> itr = vertexNums.keySet().iterator();
+		
+		while(itr.hasNext())
+		{
+			String l = itr.next();
+			
+			System.out.println(l + " " + vertexNums.get(l));
+		}
+	}
+	
+	private void DFS(Person p, boolean[] visited, HashMap<String, Integer> x)
+	{
+		if(visited[p.getId()])
+			return;
+		visited[p.getId()] = true;
+		
+		ArrayList<Person> list = p.getFriends();
+		
+		for(int i = 0;i < list.size();i++)
+		{
+			DFS(list.get(i), visited, x);
+		}
+		x.put(p.getName(), num);
+		num--;
 	}
 	
 	/**

@@ -9,13 +9,15 @@ import java.util.ArrayList;
  */
 public class Person {
 	private String name, school;
+	private int id;
 	private ArrayList<Person> friends;
 	
-	public Person(String n, String college)
+	public Person(String n, String college, int i)
 	{
 		this.name = n;
 		this.school = college;
 		friends = new ArrayList<Person>();
+		id = i;
 	}
 	
 	public String getSchool(){
@@ -34,7 +36,17 @@ public class Person {
 			return "(" + name + ")";
 	}
 	
-	public String getFriends()
+	public String getName()
+	{
+		return name;
+	}
+	
+	public int getId()
+	{
+		return id;
+	}
+	
+	public String printFriends()
 	{
 			String x = "";
 			System.out.print(friends.get(0));
@@ -44,5 +56,10 @@ public class Person {
 			}
 			
 			return x;
+	}
+	
+	public ArrayList<Person> getFriends()
+	{
+		return friends;
 	}
 }
