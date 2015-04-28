@@ -98,7 +98,13 @@ public class Graph {
 	 * @return subgraph containing the people who go to school	
 	 */
 	private Graph getSubgraph(String school){
-		
+		Iterator itr = people.keySet().iterator();
+		while(itr.hasNext()){
+			Person next = people.get(itr.next());
+			if(next.getSchool() == school){
+				
+			}
+		}
 		return null;
 	}
 	

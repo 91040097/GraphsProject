@@ -18,6 +18,9 @@ public class Person {
 		friends = new ArrayList<Person>();
 	}
 	
+	public String getSchool(){
+		return school;
+	}
 	public void addFriend(Person p)
 	{	
 		friends.add(p);
