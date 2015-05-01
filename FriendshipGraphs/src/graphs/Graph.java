@@ -62,7 +62,11 @@ public class Graph {
 					vertices[i + 1] = name;
 				}
 				else
+				{
 					people.put(name, new Person(name, null, i + 1));
+					vertexNums.put(name, i + 1);
+					vertices[i + 1] = name;
+				}
 
 				i++;
 			}
