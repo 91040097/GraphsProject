@@ -26,6 +26,8 @@ public class Graph {
 	 */
 	public Graph(){
 		people = new HashMap<String, Person>();
+		vertexNums = new HashMap<String, Integer>();
+		vertices = new String[16];
 		//build(file);
 		//printPerson(people);
 		//printFriends(people);
@@ -55,10 +57,12 @@ public class Graph {
 				if(end < line.length())
 				{
 					college = line.substring(end + 1, line.length());
-					people.put(name, new Person(name, college, i));
+					people.put(name, new Person(name, college, i + 1));
+					vertexNums.put(name, i + 1);
+					vertices[i + 1] = name;
 				}
 				else
-					people.put(name, new Person(name, null, i));
+					people.put(name, new Person(name, null, i + 1));
 
 				i++;
 			}
@@ -79,7 +83,7 @@ public class Graph {
 				}
 			}
 			
-			addVertex();
+			//addVertex();
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
