@@ -9,7 +9,7 @@ public class Queue<T> {
 	
 	public Queue() {
 		rear = null;
-		size = 0;
+		size = 0;		
 	}
 
 	public void enqueue(T item) {
