@@ -94,6 +94,8 @@ public class Graph {
 		}
 	}
 	
+	
+	
 	private void addVertex()
 	{	
 		int s = people.size();
